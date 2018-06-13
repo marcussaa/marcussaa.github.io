@@ -39,6 +39,9 @@
 			var boardWidth;
 			var update;
 			var handleBoxClick;
+			var direction;
+			direction = 1;
+
 
 			// jQuery stuff setup for you
 			box = $('.box');
@@ -59,15 +62,22 @@
 			
 			function update() {
 				// TODO 3 / 6 / 7 / 8
-				
-			};
+				position = position + (speed * direction);
+				if(position > boardWidth) {
+                  direction = -1;
+				}
+                box.css('left', position);
+                box.text(points);
+            };
 
 
 			
 			function handleBoxClick() {
 				// TODO 4 / 5
-				
-			};
+				speed = speed + 3;
+                position = 0;
+                points = points + 1;
+ 			};
 
 
 			//this calls update every 50 milliseconds
